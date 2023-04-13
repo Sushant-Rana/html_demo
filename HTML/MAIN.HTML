@@ -9,7 +9,6 @@
     <title>
         DEMO PROJECT
     </title>
-    <!--Style CSS-->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,11 +18,15 @@
         <h1> Welcome to QTRIP</h1>
         <h6>Explore the world with fantastic places to venture</h6>
         <input type="text" id="search" placeholder="Search for a city...">
+        <div class="button-container">
+        <button id="india-filter">INDIA</button>
+        <button id="foreign-filter">INTERNATIONAL</button>
+    </div>
     </div>
 </div>
 
 <div class="card-grid">
-    <div class="card">
+    <div class="card foreign">
         <div class="card-image" style="background-image: url('https://static.independent.co.uk/2022/04/26/15/Bangkok-Wat%20Arun%20Ratchawararam%20Ratchaworamahawihan%20%28วัดอรุณราชวรารามราชวรมหาวิหาร%29%20191054MC.jpg')"></div>
         <div class="card-text">
             <h3>Bangkok</h3>
@@ -31,7 +34,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card India">
         <div class="card-image" style="background-image: url('https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F8d3134c4-8756-11eb-a305-6c8dc51a72e0.jpg?crop=2250%2C1500%2C0%2C0')"></div>
         <div class="card-text">
             <h3>GOA</h3>
@@ -39,7 +42,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card India">
         <div class="card-image" style="background-image: url('https://assets-news.housing.com/news/wp-content/uploads/2022/07/10235925/KOLKATA-SIGHTSEEING-FEATURE-compressed.jpg')"></div>
         <div class="card-text">
             <h3>KOLKATA</h3>
@@ -47,7 +50,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card foreign">
         <div class="card-image" style="background-image: url('https://a.cdn-hotels.com/gdcs/production93/d422/118f3050-41af-4c7b-9651-3428a0e894d9.jpg')"></div>
         <div class="card-text">
             <h3>SINGAPORE</h3>
@@ -55,7 +58,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card foreign">
         <div class="card-image" style="background-image: url('https://content.r9cdn.net/rimg/dimg/12/98/b1e36771-city-2258-163f4d7f814.jpg?crop=true&width=1020&height=498')"></div>
         <div class="card-text">
             <h3>SYDNEY</h3>
@@ -63,7 +66,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card India">
         <div class="card-image" style="background-image: url('https://lp-cms-production.imgix.net/2019-06/9483508eeee2b78a7356a15ed9c337a1-bengaluru-bangalore.jpg')"></div>
         <div class="card-text">
             <h3>BENGALURU</h3>
@@ -71,14 +74,14 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card foreign">
         <div class="card-image" style="background-image: url('https://www.travelandleisure.com/thmb/SPUPzO88ZXq6P4Sm4mC5Xuinoik=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/eiffel-tower-paris-france-EIFFEL0217-6ccc3553e98946f18c893018d5b42bde.jpg')"></div>
         <div class="card-text"><h3>PARIS</h3>
             <p>100+ places</p>
         </div>
     </div>
 
-    <div class="card">
+    <div class="card foreign">
         <div class="card-image" style="background-image: url('https://lp-cms-production.imgix.net/features/2019/04/Moscow-Red-Square-9a8e66e06b49.jpg')"></div>
         <div class="card-text">
             <h3>MOSCOW</h3>
@@ -86,7 +89,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card India">
         <div class="card-image" style="background-image: url('https://m.economictimes.com/thumb/msid-70259692,width-1200,height-900,resizemode-4,imgsize-325334/orissa1.jpg')"></div>
         <div class="card-text">
             <h3>ODISHA</h3>
@@ -94,7 +97,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card India">
         <div class="card-image" style="background-image: url('https://hblimg.mmtcdn.com/content/hubble/img/pune/mmt/activities/m_Pune_Destination_l_373_584.jpg')"></div>
         <div class="card-text"><h3>PUNE</h3>
             <p>100+ places</p>
@@ -117,6 +120,50 @@ searchBox.addEventListener('keyup', function(event) {
       card.classList.add('filtered');
     }
   });
+});
+
+
+const indiaBtn = document.getElementById("india-filter");
+const foreignBtn = document.getElementById("foreign-filter");
+const cardes = document.querySelectorAll(".card");
+
+indiaBtn.addEventListener("click", function () {
+  cardes.forEach((card) => {
+    if (card.classList.contains("India")) {
+        card.classList.add('flisterd');
+    } else {
+        card.classList.remove('flisterd')
+      card.classList.add('filtered');
+    }
+  });
+  this.style.backgroundColor = '#6b8e23';
+});
+
+foreignBtn.addEventListener("click", function () {
+  cardes.forEach((card) => {
+    if (card.classList.contains("foreign")) {
+        card.classList.add('flisterd');
+    } else {
+        card.classList.remove('foreign')
+      card.classList.add('filtered');
+    }
+  });
+  this.style.backgroundColor = '#6b8e23';
+});
+
+indiaBtn.addEventListener('dblclick', function() {
+  cards.forEach(card => {
+    card.classList.remove('flisterd');
+    card.classList.remove('filtered');
+  });
+  this.style.backgroundColor = '';
+});
+
+foreignBtn.addEventListener('dblclick', function() {
+  cards.forEach(card => {    card.classList.remove('flisterd');
+    card.classList.remove('filtered');
+  });
+  this.style.backgroundColor = '';
 });
 
 </script>
