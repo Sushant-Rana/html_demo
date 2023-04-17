@@ -29,7 +29,7 @@
     <div class="card foreign">
         <div class="card-image" style="background-image: url('https://static.independent.co.uk/2022/04/26/15/Bangkok-Wat%20Arun%20Ratchawararam%20Ratchaworamahawihan%20%28วัดอรุณราชวรารามราชวรมหาวิหาร%29%20191054MC.jpg')"></div>
         <div class="card-text">
-            <h3>Bangkok</h3>
+            <h3>BANGKOK</h3>
             <p>100+ places</p>
         </div>
     </div>
@@ -105,68 +105,7 @@
     </div>
     <!-- Add more cards as needed -->
 </div>
-<script>
-const searchBox = document.getElementById('search');
-const cards = document.querySelectorAll('.card');
-
-searchBox.addEventListener('keyup', function(event) {
-  const searchText = event.target.value.toLowerCase();
-  cards.forEach(card => {
-    const title = card.querySelector('.card-text h3').textContent.toLowerCase();
-    if (title.includes(searchText)) {
-        card.classList.add('flisterd');
-    } else {
-      card.classList.remove('flisterd')
-      card.classList.add('filtered');
-    }
-  });
-});
-
-
-const indiaBtn = document.getElementById("india-filter");
-const foreignBtn = document.getElementById("foreign-filter");
-const cardes = document.querySelectorAll(".card");
-
-indiaBtn.addEventListener("click", function () {
-  cardes.forEach((card) => {
-    if (card.classList.contains("India")) {
-        card.classList.add('flisterd');
-    } else {
-        card.classList.remove('flisterd')
-      card.classList.add('filtered');
-    }
-  });
-  this.style.backgroundColor = '#6b8e23';
-});
-
-foreignBtn.addEventListener("click", function () {
-  cardes.forEach((card) => {
-    if (card.classList.contains("foreign")) {
-        card.classList.add('flisterd');
-    } else {
-        card.classList.remove('foreign')
-      card.classList.add('filtered');
-    }
-  });
-  this.style.backgroundColor = '#6b8e23';
-});
-
-indiaBtn.addEventListener('dblclick', function() {
-  cards.forEach(card => {
-    card.classList.remove('flisterd');
-    card.classList.remove('filtered');
-  });
-  this.style.backgroundColor = '';
-});
-
-foreignBtn.addEventListener('dblclick', function() {
-  cards.forEach(card => {    card.classList.remove('flisterd');
-    card.classList.remove('filtered');
-  });
-  this.style.backgroundColor = '';
-});
-
-</script>
+<script src="event-handlers.js"></script>
 
 
 </body>
